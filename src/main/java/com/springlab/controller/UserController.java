@@ -15,14 +15,19 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping(value = "/user/{username}")
-    public User getUser(@PathVariable String username){
-        return userRepository.getUser(username);
+    @GetMapping(value = "/user/id/{id}")
+    public User findUserById(@PathVariable int id){
+        return userRepository.findUserById(id);
+    }
+
+    @GetMapping(value = "/user/name/{username}")
+    public User findUserByName(@PathVariable String username){
+        return userRepository.findUserByName(username);
     }
 
     @GetMapping(value = "/users")
-    public List<User> getUsers(){
-        return userRepository.getUsers();
+    public List<User> findUsers(){
+        return userRepository.findAll();
     }
 
     @PostMapping(value = "/user")

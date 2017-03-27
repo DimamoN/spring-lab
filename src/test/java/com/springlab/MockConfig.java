@@ -24,12 +24,12 @@ public class MockConfig {
         users.add(new User(2,"bob"));
 
         UserRepository userRepository = mock(UserRepository.class);
-        when(userRepository.getUsers()).thenReturn(users);
+        when(userRepository.findAll()).thenReturn(users);
 
-        when(userRepository.getUser("olya"))
+        when(userRepository.findUserByName("olya"))
                 .thenReturn(users.get(0));
 
-        when(userRepository.getUser("bob"))
+        when(userRepository.findUserByName("bob"))
                 .thenReturn(users.get(1));
 
         return userRepository;

@@ -43,8 +43,8 @@ public class UserControllerTest {
     }
 
     @Test
-    public void getUser() throws Exception {
-        MvcResult result = mockMvc.perform(get("/user/olya")
+    public void findUserByName() throws Exception {
+        MvcResult result = mockMvc.perform(get("/user/name/olya")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username", equalTo("olya")))
@@ -55,7 +55,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void getUsers() throws Exception {
+    public void findUsers() throws Exception {
         MvcResult result = mockMvc.perform(get("/users")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
